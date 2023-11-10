@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 21:06:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/10 21:36:44 by zech-chi         ###   ########.fr       */
+/*   Created: 2023/11/10 21:33:45 by zech-chi          #+#    #+#             */
+/*   Updated: 2023/11/10 21:37:08 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-void	ft_putchar(char c);
-void	ft_putstr(const char *str);
-# endif
+void	ft_putstr(const char *str)
+{
+	size_t	i;
+
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}

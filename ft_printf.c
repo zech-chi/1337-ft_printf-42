@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:03:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/10 21:25:57 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:36:27 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	ft_printf(const char * str, ...)
 			else if (str[i] == 'f')
 				printf("%f", va_arg(args, double));
 			else if (str[i] == 's')
-				printf("%s", va_arg(args, char *));
+				ft_putstr(va_arg(args, char *));
 			else if (str[i] == 'c')
-				printf("%c", va_arg(args, int));			
+				ft_putchar(va_arg(args, int));		
 		}
 		i++;
 	}
@@ -45,6 +45,6 @@ int	ft_printf(const char * str, ...)
 
 int main()
 {
-	ft_printf("hello %s from %d , %c, %f \n", "world", 1337, 'z', 6.888);
+	ft_printf("%s , %d , %c, %f \n", "world", 1337, 'z', 6.888);
 	return (0);
 }
