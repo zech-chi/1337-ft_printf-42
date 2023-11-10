@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:03:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/10 21:36:27 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:49:18 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,24 @@ int	ft_printf(const char * str, ...)
 		else
 		{
 			i++;
-			if (str[i] == 'd')
-				printf("%d", va_arg(args, int));
-			else if (str[i] == 'f')
-				printf("%f", va_arg(args, double));
+			if (str[i] == '%')
+				ft_putchar('%');
+			else if (str[i] == 'c')
+				ft_putchar((char)va_arg(args, int));
 			else if (str[i] == 's')
 				ft_putstr(va_arg(args, char *));
-			else if (str[i] == 'c')
-				ft_putchar(va_arg(args, int));		
+			else if (str[i] == 'p')
+				continue;
+			else if (str[i] == 'd')
+				ft_putnbr(va_arg(args, int));
+			else if (str[i] == 'i')
+				continue;
+			else if (str[i] == 'u')
+				continue;
+			else if (str[i] == 'x')
+				continue;
+			else if (str[i] == 'X')
+				continue;
 		}
 		i++;
 	}
