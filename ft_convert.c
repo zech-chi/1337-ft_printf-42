@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_convert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 21:06:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/10 23:06:40 by zech-chi         ###   ########.fr       */
+/*   Created: 2023/11/10 22:29:36 by zech-chi          #+#    #+#             */
+/*   Updated: 2023/11/10 23:04:30 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+void	ft_convert(int n, int baseValue, const char *base)
+{
+	long long	ln;
 
-int		ft_printf(const char * str, ...);
-void	ft_putchar(char c);
-void	ft_putstr(const char *str);
-void	ft_putnbr(int	n);
-void	ft_convert(int n, int baseValue, const char *base);
-# endif
+	ln = n;
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n *= -1;
+	}
+	else if (n < baseValue)
+	{
+		ft_putchar(base[n]);
+	}
+	else
+	{
+		ft_convert(n / baseValue, baseValue, base);
+		ft_convert(n % baseValue, baseValue, base);
+	}
+}
