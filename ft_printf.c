@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:03:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/11 01:23:36 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:32:49 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_printf(const char * str, ...)
 	va_start(args, str);
 
 	counter = 0;
-	i = 0;
+	i = 0;	
 	while (str[i])
 	{
 		if (str[i] != '%')
@@ -38,8 +38,11 @@ int	ft_printf(const char * str, ...)
 				ft_putchar((char)va_arg(args, int), &counter);
 			else if (str[i] == 's')
 				ft_putstr(va_arg(args, char *), &counter);
-			//else if (str[i] == 'p')
-			//	continue;
+			else if (str[i] == 'p')
+			{
+				ft_putstr("0x", &counter);
+				ft_convert(va_arg(args, unsigned long), 16, "0123456789abcdef", &counter);
+			}
 			else if (str[i] == 'd')
 				ft_convert(va_arg(args, int), 10, "0123456789", &counter);
 			else if (str[i] == 'i')
