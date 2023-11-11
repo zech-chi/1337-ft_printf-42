@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:06:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/10 23:06:40 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/11 01:18:14 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
 int		ft_printf(const char * str, ...);
-void	ft_putchar(char c);
-void	ft_putstr(const char *str);
-void	ft_putnbr(int	n);
-void	ft_convert(int n, int baseValue, const char *base);
+void	ft_putchar(char c, int *counter);
+void	ft_putstr(const char *str, int *counter);
+void	ft_convert(long n, int baseValue, const char *base, int *counter);
 # endif

@@ -6,29 +6,26 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:29:36 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/10 23:04:30 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/11 01:17:49 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_convert(int n, int baseValue, const char *base)
+void	ft_convert(long n, int baseValue, const char *base, int *counter)
 {
-	long long	ln;
-
-	ln = n;
 	if (n < 0)
 	{
-		ft_putchar('-');
+		ft_putchar('-', counter);
 		n *= -1;
 	}
-	else if (n < baseValue)
+	if (n < baseValue)
 	{
-		ft_putchar(base[n]);
+		ft_putchar(base[n], counter);
 	}
 	else
 	{
-		ft_convert(n / baseValue, baseValue, base);
-		ft_convert(n % baseValue, baseValue, base);
+		ft_convert(n / baseValue, baseValue, base, counter);
+		ft_convert(n % baseValue, baseValue, base, counter);
 	}
 }
