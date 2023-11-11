@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:03:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/11 22:34:47 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/11 22:53:23 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	ft_apply_specifier(char sp, int *count, va_list args)
 		ft_convert(va_arg(args, unsigned int), 16, "0123456789abcdef", count);
 	else if (sp == 'X')
 		ft_convert(va_arg(args, unsigned int), 16, "0123456789ABCDEF", count);
+	else
+		ft_putchar(sp, count);
 }
 
 int	ft_printf(const char *str, ...)
