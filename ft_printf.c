@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:03:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/11 16:32:49 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:57:40 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_printf(const char * str, ...)
 
 	counter = 0;
 	i = 0;	
+	if(write(1, "", 0) == -1)
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] != '%')
@@ -44,9 +46,9 @@ int	ft_printf(const char * str, ...)
 				ft_convert(va_arg(args, unsigned long), 16, "0123456789abcdef", &counter);
 			}
 			else if (str[i] == 'd')
-				ft_convert(va_arg(args, int), 10, "0123456789", &counter);
+				ft_print_d_i(va_arg(args, int), &counter);
 			else if (str[i] == 'i')
-				ft_convert(va_arg(args, int), 10, "0123456789", &counter);
+				ft_print_d_i(va_arg(args, int), &counter);
 			else if (str[i] == 'u')
 				ft_convert((long)(va_arg(args, unsigned int)), 10, "0123456789", &counter);
 			else if (str[i] == 'x')
