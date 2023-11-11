@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:03:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/11 17:57:40 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/11 19:57:42 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ int	ft_printf(const char * str, ...)
 			else if (str[i] == 'i')
 				ft_print_d_i(va_arg(args, int), &counter);
 			else if (str[i] == 'u')
-				ft_convert((long)(va_arg(args, unsigned int)), 10, "0123456789", &counter);
+				ft_convert(va_arg(args, unsigned int), 10, "0123456789", &counter);
 			else if (str[i] == 'x')
-				ft_convert((long)(va_arg(args, unsigned int)), 16, "0123456789abcdef", &counter);
+				ft_convert(va_arg(args, unsigned int), 16, "0123456789abcdef", &counter);
 			else if (str[i] == 'X')
-				ft_convert((long)(va_arg(args, unsigned int)), 16, "0123456789ABCDEF", &counter);
+				ft_convert(va_arg(args, unsigned int), 16, "0123456789ABCDEF", &counter);
 		}
 		if (str[i])
 			i++;
