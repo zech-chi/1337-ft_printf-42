@@ -6,14 +6,14 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:11:24 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/11 20:00:25 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/11 22:36:00 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c, int *counter)
+void	ft_putchar(char c, int *count)
 {
 	write(1, &c, 1);
-	(*counter)++;
+	(*count)++;
 }
