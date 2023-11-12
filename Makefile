@@ -7,7 +7,7 @@ NAME = libftprintf.a
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $^
 
-%.o: %.c
+%.o: %.c ft_printf.h
 	cc -Wall -Wextra -Werror -c $< -o $@
 
 all: $(NAME)
