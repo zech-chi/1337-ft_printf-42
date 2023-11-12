@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:03:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/11 22:53:23 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:01:09 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_apply_specifier(char sp, int *count, va_list args)
 	else if (sp == 'p')
 	{
 		ft_putstr("0x", count);
-		ft_convert(va_arg(args, unsigned long), 16, "0123456789abcdef", count);
+		ft_print_address_hex(va_arg(args, unsigned long long), count);
 	}
 	else if (sp == 'd' || sp == 'i')
 		ft_print_d_i(va_arg(args, int), count);
@@ -43,11 +43,11 @@ int	ft_printf(const char *str, ...)
 	int		count;
 	va_list	args;
 
+	if (write(1, "", 0) == -1 || !str)
+		return (-1);
 	va_start(args, str);
 	count = 0;
 	i = 0;
-	if (write(1, "", 0) == -1)
-		return (-1);
 	while (str[i])
 	{
 		if (str[i] != '%')

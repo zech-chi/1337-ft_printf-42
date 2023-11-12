@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_address_hex.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 21:06:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/11/12 14:59:24 by zech-chi         ###   ########.fr       */
+/*   Created: 2023/11/12 14:46:32 by zech-chi          #+#    #+#             */
+/*   Updated: 2023/11/12 14:59:38 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
+#include "ft_printf.h"
 
-int		ft_printf(const char *str, ...);
-void	ft_putchar(char c, int *count);
-void	ft_putstr(const char *str, int *count);
-void	ft_convert(unsigned int u, unsigned int bv, const char *base, int *c);
-void	ft_print_address_hex(unsigned long long llu, int *counter);
-void	ft_print_d_i(int n, int *count);
-#endif
+void	ft_print_address_hex(unsigned long long llu, int *counter)
+{
+	if (llu < 16)
+		ft_putchar("0123456789abcdef"[llu], counter);
+	else
+	{
+		ft_print_address_hex(llu / 16, counter);
+		ft_print_address_hex(llu % 16, counter);
+	}
+}
